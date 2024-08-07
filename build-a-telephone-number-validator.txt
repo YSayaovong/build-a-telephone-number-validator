@@ -1,0 +1,60 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telephone Number Validator</title>
+</head>
+<body>
+    <input type="text" id="user-input" placeholder="Enter phone number">
+    <button id="check-btn">Check</button>
+    <button id="clear-btn">Clear</button>
+    <p id="results-div"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+** end of undefined **
+
+** start of undefined **
+
+
+
+** end of undefined **
+
+** start of undefined **
+
+document.getElementById('check-btn').addEventListener('click', function() {
+    const input = document.getElementById('user-input').value.trim();
+    const resultsDiv = document.getElementById('results-div');
+    
+    // Regular expression to validate US phone numbers
+    const phonePattern = /^(1\s?)?(\(\d{3}\)|\d{3})([\s.-]?)\d{3}([\s.-]?)\d{4}$/;
+
+    // Check if the input is empty
+    if (input === '') {
+        alert('Please provide a phone number');
+        return;
+    }
+
+    // Check if the input matches the phone number pattern
+    if (phonePattern.test(input)) {
+        const isValid = input.match(phonePattern)[0];
+        resultsDiv.textContent = `Valid US number: ${isValid}`;
+    } else {
+        resultsDiv.textContent = `Invalid US number: ${input}`;
+    }
+});
+
+document.getElementById('clear-btn').addEventListener('click', function() {
+    document.getElementById('user-input').value = '';
+    document.getElementById('results-div').textContent = '';
+});
+
+
+** end of undefined **
+
